@@ -9,12 +9,72 @@
         WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
         >
+    <!--To add background content-->
+    <Border>
+        <Border.Background >
+            <ImageBrush ImageSource="/Content/Background_Image.png" Stretch="Uniform" />
+        </Border.Background>  
+    
+    <!--Border outside the window-->    
     <Border
         CornerRadius="50"
-        Background=""
+        BorderThickness="5"
+        Opacity="0.90"
         >
         
+        <!--Gradient color-->
+        <Border.BorderBrush>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                
+                <!--Set the location in the linear gradient-->
+                <GradientStop Color="#462AD8" Offset="0"/>
+                <GradientStop Color="#DA34AE" Offset="0.75"/>
+                <GradientStop Color="#8A16C1" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                <GradientStop Color="#060531" Offset="0"/>
+                <GradientStop Color="#1B1448" Offset="0.75"/>
+                <GradientStop Color="#3b2c9d" Offset="0.5"/>
+                
+            </LinearGradientBrush>
+        </Border.Background>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="5"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock
+                        Text="Recipe App"
+                        Foreground="DarkGray"
+                        FontSize="10"
+                        FontFamily="Montserrat"
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        Margin="10,0,0,0"
+                        />
+                </Grid>
+            </Grid>
+        
     </Border>
+        
+  </Border>
     
+    
+
 </Window>
