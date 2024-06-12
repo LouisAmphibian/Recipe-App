@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\USER\\Documents\\DevProject\\Projects\\C#\\Recipe App (WPF)\\Recipe App (WPF).csproj",
+      "projectUniqueName": "C:\\Users\\USER\\Source\\Repos\\LouisAmphibian\\Recipe-App-POE\\Recipe App (WPF)\\Recipe App (WPF).csproj",
       "projectName": "Recipe App (WPF)",
-      "projectPath": "C:\\Users\\USER\\Documents\\DevProject\\Projects\\C#\\Recipe App (WPF)\\Recipe App (WPF).csproj",
+      "projectPath": "C:\\Users\\USER\\Source\\Repos\\LouisAmphibian\\Recipe-App-POE\\Recipe App (WPF)\\Recipe App (WPF).csproj",
       "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\USER\\Documents\\DevProject\\Projects\\C#\\Recipe App (WPF)\\obj\\",
+      "outputPath": "C:\\Users\\USER\\Source\\Repos\\LouisAmphibian\\Recipe-App-POE\\Recipe App (WPF)\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

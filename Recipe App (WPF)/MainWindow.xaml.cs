@@ -20,5 +20,14 @@ namespace Recipe_App__WPF_
         {
             InitializeComponent();
         }
+
+        //method to make the window dragable
+        private void WindowMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
     }
 }
