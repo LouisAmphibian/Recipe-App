@@ -29,5 +29,20 @@ namespace Recipe_App__WPF_
         {
             Application.Current.Shutdown();
         }
+
+        private void btnLaunch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAddRecipe_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSearchRecipe_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
