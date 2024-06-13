@@ -11,39 +11,36 @@
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
         AllowsTransparency="True"
-        >
+        MouseDown="WindowMouseDown">
     <!--To add background content-->
-    <Border>
-        <Border.Background >
-            <ImageBrush ImageSource="/Content/Background_Image.png" Stretch="Uniform" />
-        </Border.Background>  
-    
-    <!--Border outside the window-->    
-    <Border
-        CornerRadius="50"
-        BorderThickness="5"
-        Opacity="0.90"
-        >
+    <Border CornerRadius="50">
+        <!--
+         <Border.Background>
+     <ImageBrush ImageSource=".\Content\Background_Image.png" 
+                 Stretch="Uniform" />
+ </Border.Background> 
+        -->
         
-        <!--Gradient color-->
-        <Border.BorderBrush>
-            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                
-                <!--Set the location in the linear gradient-->
-                <GradientStop Color="#462AD8" Offset="0"/>
-                <GradientStop Color="#DA34AE" Offset="0.75"/>
-                <GradientStop Color="#8A16C1" Offset="1"/>
-            </LinearGradientBrush>
-        </Border.BorderBrush>
+    
+        <!--Border outside the window-->    
+        <Border CornerRadius="50" BorderThickness="5" Opacity="0.90">
+            <!--Gradient color-->
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <!--Set the location in the linear gradient-->
+                    <GradientStop Color="#462AD8" Offset="0"/>
+                    <GradientStop Color="#DA34AE" Offset="0.75"/>
+                    <GradientStop Color="#8A16C1" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
 
-        <Border.Background>
-            <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                <GradientStop Color="#060531" Offset="0"/>
-                <GradientStop Color="#1B1448" Offset="0.75"/>
-                <GradientStop Color="#3b2c9d" Offset="0.5"/>
-                
-            </LinearGradientBrush>
-        </Border.Background>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Color="#060531" Offset="0"/>
+                    <GradientStop Color="#1B1448" Offset="0.75"/>
+                    <GradientStop Color="#3b2c9d" Offset="0.5"/>
+                </LinearGradientBrush>
+            </Border.Background>
 
             <Grid>
                 <Grid.RowDefinitions>
@@ -56,25 +53,106 @@
                         <ColumnDefinition/>
                         <ColumnDefinition Width="25"/>
                         <ColumnDefinition Width="25"/>
-                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="25"/>
                     </Grid.ColumnDefinitions>
 
                     <TextBlock
                         Text="Recipe App"
                         Foreground="DarkGray"
-                        FontSize="10"
+                        FontSize="15"
+                        FontWeight="Bold"
                         FontFamily="Montserrat"
                         Grid.Column="0"
                         VerticalAlignment="Center"
-                        Margin="10,0,0,0"
-                        />
+                        Margin="25,0,0,0"/>
+
+                    <!--Nav buttons-->
+                    <Button
+                        x:Name="btnMiniize"
+                        BorderThickness="0"
+                        Content="-"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        FontSize="16"
+                        FontFamily='Montserrat'
+                        Cursor="Hand"
+                        Grid.Column="1"
+                        Click="btnMiniize_Click"
+                        >
+                        <!--When button button is hovere-->
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#28AEED"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#278BEF"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <!--override the button -->
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="20"
+                                        Height="20"
+                                        CornerRadius="9"
+                                        Background="{TemplateBinding Background}"
+                                        >
+                                    <ContentPresenter
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        />
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
+
+                    <Button
+                        x:Name="btnClose"
+                        BorderThickness="0"
+                        Content="X"
+                        Foreground="White"
+                        FontSize="16"
+                        FontFamily="Monstserrat"
+                        Cursor="Hand"
+                        Grid.Column="2"
+                        Click="btnClose_Click"
+                        >
+
+                        <!--When button button is hovere-->
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#DA34AE"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#DA34AE"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <!--override the button -->
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="20"
+                                 Height="20"
+                                 CornerRadius="9"
+                                 Background="{TemplateBinding Background}"
+                                >
+                                    
+                                <ContentPresenter
+                                VerticalAlignment="Center"
+                                 HorizontalAlignment="Center"
+                />
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
                 </Grid>
             </Grid>
-        
+        </Border>
     </Border>
-        
-  </Border>
-    
-    
-
 </Window>
