@@ -62,15 +62,43 @@ namespace Recipe_App__WPF_
             string ingredientCalories = caloriesTextBox.Text;
             string ingredientFoodGroup = foodGroupTextBox.Text;
 
-
+            //check the variables if they are not empty
             if (ingredientName.Equals("") || ingredientQuantity.Equals("") || ingredientUnit.Equals("") || ingredientCalories.Equals("") || ingredientFoodGroup.Equals(""))
             {
+                //display a message
+                MessageBox.Show(" Error Message !! \n\n All fields are" +
+                    "required !!\n\n");
+            }
+            else
+            {
+                //pass the varibales to store in the generics and display
+                ingredientsListBox.Items.Add(new Ingredient { NameOfIngredient = ingredientName, QuantityOfIngredient = ingredientQuantity, UnitOfIngredient = ingredientUnit, CaloriesOfIngredient = ingredientCalories, FoodGroupOfIngredient = ingredientFoodGroup });
 
+                //clear the fields 
+                ingredientTextBox.Clear();
+                quantityTextBox.Clear();
+                unitTextBox.Clear();
+                caloriesTextBox.Clear();
+                foodGroupTextBox.Clear();
             }
         }
 
         private void btnAddStep_Click(object sender, RoutedEventArgs e)
         {
+            string step = stepTextBox.Text;
+
+            if (step.Equals(""))
+            {
+                //display a message
+                MessageBox.Show(" ERROR:At least one step is required" +
+                    "required !!\n\n");
+            }
+            else
+            {
+                stepsListBox.Items.Add(step);
+                stepTextBox.Clear();
+            }
+
 
         }
 
@@ -78,6 +106,28 @@ namespace Recipe_App__WPF_
         {
             //store recipe after save button
             string recipeName = recipe_name.Text;
+
+            if (recipeName.Equals(""))
+            {
+                //display a message
+                MessageBox.Show(" ERROR: Check if there is no empty field");
+            }
+            else
+            {
+                var ingredients = new List<Ingredient>();
+                foreach (Ingredient ingredient in ingredientsListBox.Items)
+                {
+                    ingredients.Add(ingredient);
+                }
+
+                var steps = new List<string>();
+                foreach (string step in stepsListBox.Items)
+                {
+                    steps.Add(step);
+                }
+
+                var recipe = new Recipe(ingredients, steps.ToArray());
+            }
 
         }
     }

@@ -10,9 +10,9 @@ namespace Recipe_App__WPF_
     {
         //Public property to hold the list of ingredient details
         public string NameOfIngredient { get; set; }
-        public double QuantityOfIngredient { get; set; }
+        public string QuantityOfIngredient { get; set; }
         public string UnitOfIngredient { get; set; }
-        public double CaloriesOfIngredient { get; set; }
+        public string CaloriesOfIngredient { get; set; }
         public string FoodGroupOfIngredient { get; set; }
 
         public override string ToString()

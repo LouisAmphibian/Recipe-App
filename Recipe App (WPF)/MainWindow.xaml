@@ -427,7 +427,7 @@
                                     <TextBox Name="foodGroupTextBox" Width="100" Text="Food Group" Margin="0,0,5,0"/>
                                     <Button x:Name="btnAddIngredient" Content="Add" Click="btnAddIngredient_Click"/>
                                 </StackPanel>
-                                <ListBox Name="IngredientsListBox" Height="70"/>
+                                <ListBox Name="ingredientsListBox" Height="70"/>
                             </StackPanel>
 
                             <StackPanel Orientation="Vertical" Margin="19,10,30,0" >
@@ -446,7 +446,7 @@
                                     <Button x:Name="btnAddStep" Content="Add" Click="btnAddStep_Click"/>
                                 </StackPanel>
 
-                                <ListBox Name="StepsListBox" Height="70"/>
+                                <ListBox Name="stepsListBox" Height="70"/>
                             </StackPanel>
 
                             <Button x:Name="btnSaveRecipe"
