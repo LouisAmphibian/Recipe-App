@@ -48,5 +48,25 @@ namespace Recipe_App__WPF_
         {
 
         }
+
+        private void btnAddIngredient_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAddStep_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSaveRecipe_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

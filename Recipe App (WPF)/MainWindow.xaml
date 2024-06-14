@@ -8,6 +8,8 @@
         Title="Recipe App" Height="450" Width="800"
         WindowStyle="None"
         ResizeMode="NoResize"
+        
+
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
         AllowsTransparency="True"
@@ -41,8 +43,8 @@
                     <GradientStop Color="#3b2c9d" Offset="0.5"/>
                 </LinearGradientBrush>
             </Border.Background>
-             
-            
+
+
             <!--The USER Grid-->
             <Grid>
                 <Grid.RowDefinitions>
@@ -390,24 +392,120 @@
                           Visibility="Visible"
                           >
 
+                        <!--The content-->
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal" Margin="0">
+                                <TextBlock 
+                                 FontSize="14"
+                                 Foreground="White" Height="25"
+                                 Margin="19,10,30,0"
+                                 Padding="0"
+                                 FontFamily="Montserrat"
+                                 FontWeight="SemiBold" 
+                                 Text="Enter Recipe Name:"
+                                />  
 
-                        <TextBlock Margin="26,41,368,329" 
-                        >Enter recipe name:
-                        </TextBlock>
-                        <TextBlock>
-                            
-                        </TextBlock>
+                                <TextBox x:Name="recipe_name" Width="165" Height="25" Margin="0,0,0,0"></TextBox>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Vertical" Margin="19,10,30,0">
+                                <TextBlock 
+                                  FontSize="14"
+                                  Foreground="White" Height="25"
+                                  Margin="0,10,30,0"
+                                  Padding="0"
+                                  FontFamily="Montserrat"
+                                  FontWeight="SemiBold" 
+                                  Text="Enter Ingreient:"
+                                 />
+
+                                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                                    <TextBox Name="ingredientTextBox" Width="100" Text="Ingredient" Margin="0,0,5,0"/>
+                                    <TextBox Name="quantityTextBox" Width="50" Text="Qty" Margin="0,0,5,0"/>
+                                    <TextBox Name="unitTextBox" Width="50" Text="Unit" Margin="0,0,5,0"/>
+                                    <TextBox Name="caloriesTextBox" Width="50" Text=" " Margin="0,0,5,0"/>
+                                    <TextBox Name="foodGroupTextBox" Width="100" Text="Food Group" Margin="0,0,5,0"/>
+                                    <Button x:Name="btnAddIngredient" Content="Add" Click="btnAddIngredient_Click"/>
+                                </StackPanel>
+                                <ListBox Name="IngredientsListBox" Height="70"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Vertical" Margin="19,10,30,0" >
+                                <TextBlock 
+                                   FontSize="14"
+                                   Foreground="White" Height="25"
+                                   Margin="0,10,30,0"
+                                   Padding="0"
+                                   FontFamily="Montserrat"
+                                   FontWeight="SemiBold" 
+                                   Text="Enter Steps:"
+                                  />
+
+                                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                                    <TextBox Name="stepTextBox" Width="200" Text="Step" Margin="0,0,5,0"/>
+                                    <Button x:Name="btnAddStep" Content="Add" Click="btnAddStep_Click"/>
+                                </StackPanel>
+
+                                <ListBox Name="StepsListBox" Height="70"/>
+                            </StackPanel>
+
+                            <Button x:Name="btnSaveRecipe"
+                                    Content="ADD RECIPE"
+                                    BorderThickness="0"
+                                    Foreground="White"
+                                    FontSize="16"
+                                    FontWeight="Bold"
+                                    FontFamily="Montserrat"
+                                    Cursor="Hand"
+                                    Click="btnSaveRecipe_Click"
+                                    Margin="0,20,0,30"
+                                    >   
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Background" Value="#28AEED"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#28AEED"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+
+                                    </Style>
+                                </Button.Style>
+
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Width="200"
+                                        Height="40"
+                                        CornerRadius="9"
+                                        Background="{TemplateBinding Background}"
+                                        >
+                                            <ContentPresenter VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        Content="{TemplateBinding Content}"
+                                         />
+
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button >
+
+
+                        </StackPanel>
+                        
+
+                        
                     </Grid>
+                    <!--END: Add ADD RECIPE CODE-->
 
                 </Grid>
                 <!--END: Menu CODE-->
 
 
 
-            </Grid>    
-            <!--END: USER Grid-->
-            
-            
+            </Grid>
+            <!--END: USER Grid CODE-->
+
+
         </Border>
     </Border>
 </Window>
