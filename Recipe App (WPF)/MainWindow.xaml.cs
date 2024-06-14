@@ -6,6 +6,7 @@ namespace Recipe_App__WPF_
 {
     public partial class MainWindow : Window
     {
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -55,11 +56,7 @@ namespace Recipe_App__WPF_
         private void btnAddIngredient_Click(object sender, RoutedEventArgs e)
         {
 
-        }
-
-        private void btn_Click(object sender, RoutedEventArgs e)
-        {
-
+            string ingredient = ingredientTextBox.Text;
         }
 
         private void btnAddStep_Click(object sender, RoutedEventArgs e)
@@ -69,6 +66,8 @@ namespace Recipe_App__WPF_
 
         private void btnSaveRecipe_Click(object sender, RoutedEventArgs e)
         {
+            //store recipe after save button
+            string recipeName = recipe_name.Text;
 
         }
     }
