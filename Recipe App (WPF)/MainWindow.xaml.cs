@@ -56,7 +56,17 @@ namespace Recipe_App__WPF_
         private void btnAddIngredient_Click(object sender, RoutedEventArgs e)
         {
 
-            string ingredient = ingredientTextBox.Text;
+            string ingredientName = ingredientTextBox.Text;
+            string ingredientQuantity = quantityTextBox.Text;
+            string ingredientUnit = unitTextBox.Text;
+            string ingredientCalories = caloriesTextBox.Text;
+            string ingredientFoodGroup = foodGroupTextBox.Text;
+
+
+            if (ingredientName.Equals("") || ingredientQuantity.Equals("") || ingredientUnit.Equals("") || ingredientCalories.Equals("") || ingredientFoodGroup.Equals(""))
+            {
+
+            }
         }
 
         private void btnAddStep_Click(object sender, RoutedEventArgs e)
