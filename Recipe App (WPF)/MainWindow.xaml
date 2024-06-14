@@ -164,7 +164,7 @@
                             Orientation="Vertical"
                             Margin="270,45,270,0"
                             x:Name="landing_page"
-                            Visibility="Hidden"
+                            Visibility="Visible"
                             >
 
                     <Image Source="/content/Background_Image.png" Name="bc_img" Height="180"/>
@@ -235,7 +235,7 @@
                 <!--Menu after landing-->
                 <Grid Grid.Row="1"
                     x:Name="menu"
-                    Visibility="Visible"
+                    Visibility="Hidden"
                     Background="Transparent"
                     >
 
@@ -389,7 +389,7 @@
                     <Grid x:Name="addRecipePage"
                           Grid.Column="1"
                           Background="Transparent"
-                          Visibility="Visible"
+                          Visibility="Hidden"
                           >
 
                         <!--The content-->

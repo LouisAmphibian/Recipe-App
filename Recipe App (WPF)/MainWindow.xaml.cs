@@ -41,6 +41,9 @@ namespace Recipe_App__WPF_
 
         private void btnAddRecipe_Click(object sender, RoutedEventArgs e)
         {
+            landing_page.Visibility = Visibility.Hidden;
+            addRecipePage.Visibility = Visibility.Visible;
+            menu.Visibility = Visibility.Visible;
 
         }
 
