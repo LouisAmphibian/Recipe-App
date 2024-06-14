@@ -154,5 +154,20 @@ namespace Recipe_App__WPF_
             }
 
         }
+
+        private void btnApplyScale_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnResetQuantities_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnFoodGroupFilter_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
