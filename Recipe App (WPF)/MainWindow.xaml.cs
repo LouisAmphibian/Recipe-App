@@ -6,10 +6,13 @@ namespace Recipe_App__WPF_
 {
     public partial class MainWindow : Window
     {
-        
+        // Private dictionary to store recipes
+        private Dictionary<string, Recipe> dictionaryForRecipes;
+
         public MainWindow()
         {
             InitializeComponent();
+            dictionaryForRecipes = new Dictionary<string, Recipe>();
         }
 
 
@@ -72,7 +75,13 @@ namespace Recipe_App__WPF_
             else
             {
                 //pass the varibales to store in the generics and display
-                ingredientsListBox.Items.Add(new Ingredient { NameOfIngredient = ingredientName, QuantityOfIngredient = ingredientQuantity, UnitOfIngredient = ingredientUnit, CaloriesOfIngredient = ingredientCalories, FoodGroupOfIngredient = ingredientFoodGroup });
+                ingredientsListBox.Items.Add(new Ingredient 
+                { 
+                    NameOfIngredient = ingredientName, 
+                    QuantityOfIngredient = ingredientQuantity, 
+                    UnitOfIngredient = ingredientUnit, 
+                    CaloriesOfIngredient = ingredientCalories, 
+                    FoodGroupOfIngredient = ingredientFoodGroup });
 
                 //clear the fields 
                 ingredientTextBox.Clear();
@@ -107,26 +116,41 @@ namespace Recipe_App__WPF_
             //store recipe after save button
             string recipeName = recipe_name.Text;
 
-            if (recipeName.Equals(""))
+            if (string.IsNullOrWhiteSpace(recipeName) || dictionaryForRecipes.ContainsKey(recipeName))
             {
                 //display a message
-                MessageBox.Show(" ERROR: Check if there is no empty field");
+                MessageBox.Show(" ERROR: Check if there is no empty field OR enter a  differnt recipe name that does not exist ");
             }
             else
             {
+                // Initialize an empty list to store the ingredients
                 var ingredients = new List<Ingredient>();
+
+                // Iterate through each item in the ingredientsListBox and add it to the ingredients list
                 foreach (Ingredient ingredient in ingredientsListBox.Items)
                 {
                     ingredients.Add(ingredient);
                 }
 
+                // Initialize an empty list to store the steps
                 var steps = new List<string>();
+
+                // Iterate through each item in the stepsListBox and add it to the steps list
                 foreach (string step in stepsListBox.Items)
                 {
                     steps.Add(step);
                 }
 
+                // Creating a new Recipe object using the ingredients list and the steps list converted to an array
                 var recipe = new Recipe(ingredients, steps.ToArray());
+                dictionaryForRecipes.Add(recipeName, recipe);
+
+                landing_page.Visibility = Visibility.Hidden;
+                addRecipePage.Visibility = Visibility.Hidden;
+                menu.Visibility = Visibility.Visible;
+
+                MessageBox.Show("Recipe has been succesfully added");
+                
             }
 
         }
