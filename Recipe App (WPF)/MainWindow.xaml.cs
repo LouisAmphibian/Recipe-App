@@ -11,6 +11,7 @@ namespace Recipe_App__WPF_
             InitializeComponent();
         }
 
+
         // Method to make the window draggable
         private void WindowMouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -32,6 +33,9 @@ namespace Recipe_App__WPF_
 
         private void btnLaunch_Click(object sender, RoutedEventArgs e)
         {
+            landing_page.Visibility = Visibility.Hidden;
+            menu.Visibility = Visibility.Visible; 
+
 
         }
 

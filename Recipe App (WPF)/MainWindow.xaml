@@ -41,7 +41,9 @@
                     <GradientStop Color="#3b2c9d" Offset="0.5"/>
                 </LinearGradientBrush>
             </Border.Background>
-
+             
+            
+            <!--The USER Grid-->
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="38"/>
@@ -160,7 +162,7 @@
                             Orientation="Vertical"
                             Margin="270,45,270,0"
                             x:Name="landing_page"
-                            Visibility="Visible"
+                            Visibility="Hidden"
                             >
 
                     <Image Source="/content/Background_Image.png" Name="bc_img" Height="180"/>
@@ -193,6 +195,7 @@
                             Grid.Column="2"
                             Margin="0,50,0,0"
                             Click="btnLaunch_Click"
+                            Cursor="Hand"
                             >
 
                         <Button.Style>
@@ -230,7 +233,7 @@
                 <!--Menu after landing-->
                 <Grid Grid.Row="1"
                     x:Name="menu"
-                    Visibility="Hidden"
+                    Visibility="Visible"
                     Background="Transparent"
                     >
 
@@ -239,7 +242,7 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    
+
                     <!--Side Nav-->
                     <Border Background="Black"
                             CornerRadius="0,0,0,49"
@@ -285,8 +288,8 @@
                                         </Border>
                                     </ControlTemplate>
                                 </Button.Template>
-                                
-                                
+
+
                             </Button >
 
                             <Button
@@ -321,7 +324,7 @@
                                         CornerRadius="9"
                                         Background="{TemplateBinding Background}"
                                          >
-                                        <ContentPresenter VerticalAlignment="Center"
+                                            <ContentPresenter VerticalAlignment="Center"
                                          HorizontalAlignment="Center"
                                          Content="{TemplateBinding Content}"
                                         />
@@ -364,7 +367,7 @@
                                          CornerRadius="9"
                                          Background="{TemplateBinding Background}"
                                           >
-                                          <ContentPresenter VerticalAlignment="Center"
+                                            <ContentPresenter VerticalAlignment="Center"
                                           HorizontalAlignment="Center"
                                           Content="{TemplateBinding Content}"
                                          />
@@ -378,20 +381,33 @@
 
                     </Border>
 
-                    
-                    
+
+
                     <!--Add Recipe Page-->
                     <Grid x:Name="addRecipePage"
                           Grid.Column="1"
                           Background="Transparent"
                           Visibility="Visible"
                           >
+
+
+                        <TextBlock Margin="26,41,368,329" 
+                        >Enter recipe name:
+                        </TextBlock>
+                        <TextBlock>
+                            
+                        </TextBlock>
                     </Grid>
-                    
+
                 </Grid>
+                <!--END: Menu CODE-->
 
 
-            </Grid>
+
+            </Grid>    
+            <!--END: USER Grid-->
+            
+            
         </Border>
     </Border>
 </Window>
