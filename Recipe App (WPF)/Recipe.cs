@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Recipe_App__WPF_
 {
-    class Recipe
+    public class Recipe
     {
         // Public property to hold a list of ingredients
         // List<Ingredient> is a collection that stores Ingredient objects

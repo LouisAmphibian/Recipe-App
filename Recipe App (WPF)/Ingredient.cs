@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Recipe_App__WPF_
 {
-    class Ingredient
+    public class Ingredient
     {
         //Public property to hold the list of ingredient details
         public string NameOfIngredient { get; set; }

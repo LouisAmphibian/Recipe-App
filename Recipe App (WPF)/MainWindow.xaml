@@ -164,7 +164,7 @@
                             Orientation="Vertical"
                             Margin="270,45,270,0"
                             x:Name="landing_page"
-                            Visibility="Visible"
+                            Visibility="Hidden"
                             >
 
                     <Image Source="/content/Background_Image.png" Name="bc_img" Height="180"/>
@@ -235,7 +235,7 @@
                 <!--Menu after landing-->
                 <Grid Grid.Row="1"
                     x:Name="menu"
-                    Visibility="Hidden"
+                    Visibility="Visible"
                     Background="Transparent"
                     >
 
@@ -389,7 +389,7 @@
                     <Grid x:Name="addRecipePage"
                           Grid.Column="1"
                           Background="Transparent"
-                          Visibility="Hidden"
+                          Visibility="Visible"
                           >
 
                         <!--The content-->
@@ -515,7 +515,7 @@
                                Text="Recipe detail"
                                HorizontalAlignment="Center"
                               />
-                            <TextBox Name="RecipeDetailsTextBox" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" IsReadOnly="True" Height="100"/>
+                            <TextBox x:Name="recipeDetailsTextBox" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" IsReadOnly="True" Height="100"/>
 
                             <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
                                 <TextBlock 
@@ -528,7 +528,7 @@
                                    Text="Scale Recipe"
                                    HorizontalAlignment="Left"
                                   />
-                                <ComboBox Name="scaleComboBox" Width="70" Height="25" Margin="0,0,10,0">
+                                <ComboBox x:Name="scaleComboBox" Width="70" Height="25" Margin="0,0,10,0">
                                     <ComboBoxItem Content="0.5"/>
                                     <ComboBoxItem Content="2"/>
                                     <ComboBoxItem Content="3"/>
@@ -551,7 +551,8 @@
                                     />
 
                                     <TextBox x:Name="filterIngredientTextBox" Text="Enter ingredient name"  Width="128" Height="25" Margin="0,0,10,0"/>
-                                    <Button x:Name="btnIngredientFilter" Content="Filter by Ingredient" Click="" Width="120" Height="25" Margin="0,0,10,0"/>
+                                    <Button x:Name="btnIngredientFilter" Content="Filter by Ingredient" Click="btnIngredientFilter_Click"
+                                            Width="120" Height="25" Margin="0,0,10,0"/>
                                     <ComboBox x:Name="foodGroup_ComboBox" Text="Select food group"  Width="110" Height="25" Margin="0,0,10,0">
                                         <ComboBoxItem Content="Vegetables"/>
                                         <ComboBoxItem Content="Fruits"/>
@@ -564,7 +565,8 @@
                                 <StackPanel Orientation="Horizontal" Margin="107,5,0,5">
                                     <Button x:Name="btnFoodGroupFilter" Content="Filter by Food Group" Click="btnFoodGroupFilter_Click" Width="110" Height="25" Margin="0,0,10,0"/>
                                     <TextBox  x:Name="maxCaloriesTextBox" Text="Enter max calories" Width="128" Height="25" Margin="0,0,10,0"/>
-                                    <Button x:Name="btnCaloriesFilter" Content="Filter by Calories" Click="" Width="110" Height="25" Margin="0,0,10,0"/>
+                                    <Button x:Name="btnCaloriesFilter" Content="Filter by Calories" Click="btnCaloriesFilter_Click"
+                                            Width="110" Height="25" Margin="0,0,10,0"/>
                                 </StackPanel>
                                 
                             </StackPanel>

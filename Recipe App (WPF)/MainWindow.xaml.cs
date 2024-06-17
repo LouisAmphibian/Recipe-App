@@ -6,13 +6,17 @@ namespace Recipe_App__WPF_
 {
     public partial class MainWindow : Window
     {
-        // Private dictionary to store recipes
-        private Dictionary<string, Recipe> dictionaryForRecipes;
+        //2. private dictionary to store recipes
+        private Dictionary<string, Recipe> DictionaryforRecipe;
 
-        public MainWindow()
+
+        //the Main Window's constructor
+        public MainWindow(Dictionary<string, Recipe> dictionaryforRecipe)
         {
+            //method which initialize all the UI components and sets up the event handlers, essentially setting up the user interface as defined in the XAML
             InitializeComponent();
-            dictionaryForRecipes = new Dictionary<string, Recipe>();
+
+            DictionaryforRecipe = dictionaryforRecipe;
         }
 
 
@@ -75,13 +79,7 @@ namespace Recipe_App__WPF_
             else
             {
                 //pass the varibales to store in the generics and display
-                ingredientsListBox.Items.Add(new Ingredient 
-                { 
-                    NameOfIngredient = ingredientName, 
-                    QuantityOfIngredient = ingredientQuantity, 
-                    UnitOfIngredient = ingredientUnit, 
-                    CaloriesOfIngredient = ingredientCalories, 
-                    FoodGroupOfIngredient = ingredientFoodGroup });
+                ingredientsListBox.Items.Add(new Ingredient { NameOfIngredient = ingredientName, QuantityOfIngredient = ingredientQuantity, UnitOfIngredient = ingredientUnit, CaloriesOfIngredient = ingredientCalories, FoodGroupOfIngredient = ingredientFoodGroup });
 
                 //clear the fields 
                 ingredientTextBox.Clear();
@@ -116,41 +114,38 @@ namespace Recipe_App__WPF_
             //store recipe after save button
             string recipeName = recipe_name.Text;
 
-            if (string.IsNullOrWhiteSpace(recipeName) || dictionaryForRecipes.ContainsKey(recipeName))
+            if (recipeName.Equals(""))
             {
                 //display a message
-                MessageBox.Show(" ERROR: Check if there is no empty field OR enter a  differnt recipe name that does not exist ");
+                MessageBox.Show(" ERROR: Check if there is no empty field");
             }
             else
             {
-                // Initialize an empty list to store the ingredients
+                //create a new list to store multiple Ingredients objects
                 var ingredients = new List<Ingredient>();
 
-                // Iterate through each item in the ingredientsListBox and add it to the ingredients list
+                //for loop to iterate through each item in the ingredientsListBox and add it to the ingredient list
                 foreach (Ingredient ingredient in ingredientsListBox.Items)
                 {
                     ingredients.Add(ingredient);
                 }
 
-                // Initialize an empty list to store the steps
+                //create a new list to store multiple Steps object 
                 var steps = new List<string>();
 
-                // Iterate through each item in the stepsListBox and add it to the steps list
+                //for loop to iterate through each item in the stepListBox and add it to the step list
                 foreach (string step in stepsListBox.Items)
                 {
                     steps.Add(step);
                 }
 
-                // Creating a new Recipe object using the ingredients list and the steps list converted to an array
+                //1.Create a new Reccipe object using the ingredients list and the steps list converted to an array
                 var recipe = new Recipe(ingredients, steps.ToArray());
-                dictionaryForRecipes.Add(recipeName, recipe);
 
-                landing_page.Visibility = Visibility.Hidden;
-                addRecipePage.Visibility = Visibility.Hidden;
-                menu.Visibility = Visibility.Visible;
+                //3.Add the new Recipe object the dictionary with the recipe as the key
+                DictionaryforRecipe.Add(recipeName, recipe);
 
-                MessageBox.Show("Recipe has been succesfully added");
-                
+                MessageBox.Show("Recipe is successfully added!");
             }
 
         }
@@ -166,6 +161,16 @@ namespace Recipe_App__WPF_
         }
 
         private void btnFoodGroupFilter_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnIngredientFilter_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnCaloriesFilter_Click(object sender, RoutedEventArgs e)
         {
 
         }
