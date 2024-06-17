@@ -8,7 +8,7 @@ namespace Recipe_App__WPF_
 {
     public class Ingredient
     {
-        //Public property to hold the list of ingredient details
+        //Public property to hold the list of ingredient details.
         public string NameOfIngredient { get; set; }
         public string QuantityOfIngredient { get; set; }
         public string UnitOfIngredient { get; set; }

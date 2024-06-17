@@ -121,7 +121,7 @@ namespace Recipe_App__WPF_
             }
             else
             {
-                //create a new list to store multiple Ingredients objects
+                //create a new list to store multiple Ingredients objects.
                 var ingredients = new List<Ingredient>();
 
                 //for loop to iterate through each item in the ingredientsListBox and add it to the ingredient list

@@ -453,7 +453,7 @@
                                     Content="ADD RECIPE"
                                     BorderThickness="0"
                                     Foreground="White"
-                                    FontSize="16"
+                                    FontSize="17"
                                     FontWeight="Bold"
                                     FontFamily="Montserrat"
                                     Cursor="Hand"

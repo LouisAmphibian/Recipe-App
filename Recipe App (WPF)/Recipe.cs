@@ -8,8 +8,8 @@ namespace Recipe_App__WPF_
 {
     public class Recipe
     {
-        // Public property to hold a list of ingredients
-        // List<Ingredient> is a collection that stores Ingredient objects
+        // Public property to hold a list of ingredients.
+        // List<Ingredient> is a collection that stores Ingredient objects.
         public List<Ingredient> Ingredients { get; set; }
 
         // Public property to hold an array of steps
