@@ -81,7 +81,7 @@
                         FontFamily='Montserrat'
                         Cursor="Hand"
                         Grid.Column="1"
-                        Click="btnMiniize_Click"
+                        Click="btnMinimize_Click"
                         >
                         <!--When button button is hovere-->
                         <Button.Style>

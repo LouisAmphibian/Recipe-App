@@ -11,12 +11,12 @@ namespace Recipe_App__WPF_
 
 
         //the Main Window's constructor
-        public MainWindow(Dictionary<string, Recipe> dictionaryforRecipe)
+        public MainWindow()
         {
             //method which initialize all the UI components and sets up the event handlers, essentially setting up the user interface as defined in the XAML
             InitializeComponent();
 
-            DictionaryforRecipe = dictionaryforRecipe;
+            DictionaryforRecipe = new Dictionary<string, Recipe>();
         }
 
 
@@ -29,7 +29,7 @@ namespace Recipe_App__WPF_
             }
         }
 
-        private void btnMiniize_Click(object sender, RoutedEventArgs e)
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
         }
@@ -114,10 +114,15 @@ namespace Recipe_App__WPF_
             //store recipe after save button
             string recipeName = recipe_name.Text;
 
-            if (recipeName.Equals(""))
+            if (string.IsNullOrWhiteSpace(recipeName))//Checks if recipeName is no
             {
                 //display a message
-                MessageBox.Show(" ERROR: Check if there is no empty field");
+                MessageBox.Show(" ERROR: Recipe name cannot be empty.");
+            }
+            else if (DictionaryforRecipe.ContainsKey(recipeName)) //Checks if 'recipeName' exist in the dictionary
+            {
+                //
+                MessageBox.Show("ERROR: Recipe Name does  exist! Please Enter new Recipe Name.");
             }
             else
             {
@@ -146,6 +151,17 @@ namespace Recipe_App__WPF_
                 DictionaryforRecipe.Add(recipeName, recipe);
 
                 MessageBox.Show("Recipe is successfully added!");
+
+                //Clear the fields for new recipe entry
+                recipe_name.Clear();
+                ingredientTextBox.Clear();
+                quantityTextBox.Clear();
+                unitTextBox.Clear();
+                caloriesTextBox.Clear();
+                foodGroupTextBox.Clear();
+                ingredientsListBox.Items.Clear();
+                stepTextBox.Clear();
+                stepsListBox.Items.Clear();
             }
 
         }

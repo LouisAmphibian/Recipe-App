@@ -13,8 +13,4 @@
     <None Remove="Background_Image.png" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Resource Include="Background_Image.png" />
-  </ItemGroup>
-
 </Project>
