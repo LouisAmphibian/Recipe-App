@@ -15,6 +15,8 @@ namespace Recipe_App__WPF_
         public string CaloriesOfIngredient { get; set; }
         public string FoodGroupOfIngredient { get; set; }
 
+        public double OriginalQuantity { get; set; }
+
         public override string ToString()
         {
             return $"{QuantityOfIngredient} {UnitOfIngredient} of {NameOfIngredient} ({CaloriesOfIngredient} calories, {FoodGroupOfIngredient})";

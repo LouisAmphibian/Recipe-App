@@ -19,11 +19,20 @@ namespace Recipe_App__WPF_
 
         // Constructor for the Recipe class
         // Takes a list of ingredients and an array of steps as parameters
-        public Recipe(List<Ingredient> ingredients, string[] steps)
+        public Recipe( List<Ingredient> ingredients, string[] steps)
         {
             
             Ingredients = ingredients;
             Steps = steps;
+
+            foreach (var ingredient in Ingredients)
+            {
+                double quantity;
+                if (double.TryParse(ingredient.QuantityOfIngredient, out quantity))
+                {
+                    ingredient.OriginalQuantity = quantity;
+                }
+            }
         }
 
     }

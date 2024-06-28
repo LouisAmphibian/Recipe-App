@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
@@ -209,32 +210,7 @@ namespace Recipe_App__WPF_
                         //Displaying for the user
                         recipeDetailsListBox.Items.Clear();
 
-                        foreach (Recipe recipe in DictionaryforRecipe.Values)
-                        {
-                            recipeDetailsListBox.Items.Add($"Recipe: {recipeName}");
-                            recipeDetailsListBox.Items.Add("Ingredients:");
-
-                            foreach (Ingredient ingredient in recipe.Ingredients)
-                            {
-                                recipeDetailsListBox.Items.Add(
-                                    $"Ingredient: {ingredient.NameOfIngredient}, Quantity: {ingredient.QuantityOfIngredient}, Unit: {ingredient.UnitOfIngredient}, Calories: {ingredient.CaloriesOfIngredient}, Food Group: {ingredient.FoodGroupOfIngredient}" +
-                                    $"\n --------------------------------------"
-                                );
-                            }
-
-
-                            //Display steps
-                            
-                            recipeDetailsListBox.Items.Add("Steps:");
-                            for (int i = 0; i < recipe.Steps.Length; i++)
-                            {
-                                recipeDetailsListBox.Items.Add($"Step {i + 1}: {recipe.Steps[i]}" +
-                                    $"\n --------------------------------------");
-                            }
-                            
-                            // Add an empty line for separation between recipes
-                            recipeDetailsListBox.Items.Add(string.Empty);
-                        }
+                        DisplayAllRecipe();
 
                         recipeFound = true;
                         break;
@@ -256,12 +232,36 @@ namespace Recipe_App__WPF_
 
         private void btnApplyScale_Click(object sender, RoutedEventArgs e)
         {
+            double scale;
+            if (!double.TryParse((scaleComboBox.SelectedItem as ComboBoxItem)?.Content.ToString(), out scale))
+            {
+                MessageBox.Show("Invalid scale value.");
+                return;
+            }
 
+            foreach (Recipe recipe in DictionaryforRecipe.Values)
+            {
+                foreach (Ingredient ingredient in recipe.Ingredients)
+                {
+                    ingredient.QuantityOfIngredient = (ingredient.OriginalQuantity * scale).ToString();
+                }
+            }
+
+            DisplayAllRecipe();
         }
 
+        //Reset Quantities
         private void btnResetQuantities_Click(object sender, RoutedEventArgs e)
         {
+            foreach (Recipe recipe in DictionaryforRecipe.Values)
+            {
+                foreach (Ingredient ingredient in recipe.Ingredients)
+                {
+                    ingredient.QuantityOfIngredient = ingredient.OriginalQuantity.ToString();
+                }
+            }
 
+            DisplayAllRecipe();
         }
 
         private void btnFoodGroupFilter_Click(object sender, RoutedEventArgs e)
@@ -288,6 +288,37 @@ namespace Recipe_App__WPF_
             searchRecipeNamePage.Visibility = Visibility.Hidden;
         }
 
+        public void DisplayAllRecipe()
+        {
+            recipeDetailsListBox.Items.Clear();
+
+            foreach (Recipe recipe in DictionaryforRecipe.Values)
+            {
+               // recipeDetailsListBox.Items.Add($"Recipe: { recipe.Name}");
+                recipeDetailsListBox.Items.Add("Ingredients:");
+
+                foreach (Ingredient ingredient in recipe.Ingredients)
+                {
+                    recipeDetailsListBox.Items.Add(
+                        $"Ingredient: {ingredient.NameOfIngredient}, Quantity: {ingredient.QuantityOfIngredient}, Unit: {ingredient.UnitOfIngredient}, Calories: {ingredient.CaloriesOfIngredient}, Food Group: {ingredient.FoodGroupOfIngredient}" +
+                        $"\n --------------------------------------"
+                    );
+                }
+
+
+                //Display steps
+
+                recipeDetailsListBox.Items.Add("Steps:");
+                for (int i = 0; i < recipe.Steps.Length; i++)
+                {
+                    recipeDetailsListBox.Items.Add($"Step {i + 1}: {recipe.Steps[i]}" +
+                        $"\n --------------------------------------");
+                }
+
+                // Add an empty line for separation between recipes
+                recipeDetailsListBox.Items.Add(string.Empty);
+            }
+        }
 
     }
 }
