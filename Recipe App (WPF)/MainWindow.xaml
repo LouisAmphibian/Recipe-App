@@ -164,7 +164,7 @@
                             Orientation="Vertical"
                             Margin="270,45,270,0"
                             x:Name="landing_page"
-                            Visibility="Hidden"
+                            Visibility="Visible"
                             >
 
                     <Image  Source="/content/Background_Image.png" x:Name="bc_img" Height="180" Margin="0" VerticalAlignment="Top"/>
@@ -235,7 +235,7 @@
                 <!--Menu after landing-->
                 <Grid Grid.Row="1"
                     x:Name="menu"
-                    Visibility="Visible"
+                    Visibility="Hidden"
               
                     >
 
@@ -339,7 +339,7 @@
 
                             <Button
                                 x:Name="btnDisplayPieChart"
-                                Content="Display Recipe"
+                                Content="Display Pie Chart"
                                 BorderThickness="0"
                                 Foreground="White"
                                 FontSize="16"
@@ -576,7 +576,7 @@
                          x:Name="searchedRecipePage"
                           Grid.Column="1"
                           Background="Transparent"
-                          Visibility="Visible"
+                          Visibility="Hidden"
                         >
                         <StackPanel Orientation="Vertical" Margin="19,10,30,0">
                             <TextBlock 
