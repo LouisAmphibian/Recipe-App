@@ -2,13 +2,14 @@
 
 # Description
 Recipe app is a application that allows the user to enter and store the ingredients and steps for one recipe.
+The application now is a WPF application. Changes involve it allowing new data as dictionary.
 
 ## Prerequisites
 - Make sure you have [.NET SDK](https://dotnet.microsoft.com/download) installed.
 - Make sure you have Visual Studio community(https://visualstudio.microsoft.com/vs/community/) installed
 
 ## Installation of applicaation/ project
-1. Clone this repository (https://github.com/LouisAmphibian/ST10161370-Recipe-App.git) to your local machine.
+1. Clone this repository (https://github.com/LouisAmphibian/Recipe-App-POE.git) to your local machine.
 2. Navigate to the project directory.
 3. Locate the solution explorer
 4. Double click or open the RecipeApp.sln
@@ -20,6 +21,10 @@ Recipe app is a application that allows the user to enter and store the ingredie
 ## Running the Software
 1. After building the project, navigate the Debug drop menu
 2. The click on Start Debugging or Start Without Debug
+
+## Screenshot
+![Screenshot 2024-06-28 210312](https://github.com/LouisAmphibian/Recipe-App-POE/assets/106699001/c257c829-d7fb-42fb-a94e-7afd56abaeef)
+
 
 ## Contributing
 Pull requests are welcome. No major changes, please open an issue first to discuss what you would like to change.
