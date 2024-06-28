@@ -230,6 +230,7 @@ namespace Recipe_App__WPF_
 
         }
 
+        //Apply scale 
         private void btnApplyScale_Click(object sender, RoutedEventArgs e)
         {
             double scale;
