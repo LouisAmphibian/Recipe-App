@@ -167,7 +167,7 @@
                             Visibility="Hidden"
                             >
 
-                    <Image Source="/content/Background_Image.png" Name="bc_img" Height="180"/>
+                    <Image  Source="/content/Background_Image.png" x:Name="bc_img" Height="180" Margin="0" VerticalAlignment="Top"/>
 
                     <TextBlock Text="RECIPE APP"
                                Foreground="White"
@@ -236,7 +236,7 @@
                 <Grid Grid.Row="1"
                     x:Name="menu"
                     Visibility="Visible"
-                    Background="Transparent"
+              
                     >
 
                     <Grid.ColumnDefinitions>
@@ -389,7 +389,7 @@
                     <Grid x:Name="addRecipePage"
                           Grid.Column="1"
                           Background="Transparent"
-                          Visibility="Visible"
+                          Visibility="Hidden"
                           >
 
                         <!--The content-->
@@ -497,9 +497,83 @@
                     </Grid>
                     <!--END: Add ADD RECIPE CODE-->
 
-                    <!--Search Section-->
+                    <!--Search Recipe-->
+                    <Grid x:Name="searchRecipeNamePage"
+                           Grid.Column="1"
+                           Background="Transparent"
+                           Visibility="Visible"
+                           >            
+
+                        <!--The content-->
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal" Margin="0">
+                                <TextBlock 
+                                  FontSize="14"
+                                  Foreground="White" Height="25"
+                                  Margin="19,10,30,0"
+                                  Padding="0"
+                                  FontFamily="Montserrat"
+                                  FontWeight="SemiBold" 
+                                  Text="Enter Recipe Name:"
+                                 /> 
+
+                                <TextBox x:Name="searchRecipeName" Width="165" Height="25" Margin="0,0,0,0"></TextBox>
+                            </StackPanel>
+
+
+
+                            <Button x:Name="btnSearchRecipeDatabase"
+                                     Content="Search"
+                                     BorderThickness="0"
+                                     Foreground="White"
+                                     FontSize="17"
+                                     FontWeight="Bold"
+                                     FontFamily="Montserrat"
+                                     Cursor="Hand"
+                                     Click="btnSearchRecipeDatabase_Click"
+                                     Margin="0,20,30,0"
+                                     >  
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Background" Value="#28AEED"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#28AEED"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+
+                                    </Style>
+                                </Button.Style>
+
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Width="150"
+                                         Height="40"
+                                         CornerRadius="9"
+                                         Background="{TemplateBinding Background}"
+                                         >
+                                                            <ContentPresenter VerticalAlignment="Center"
+                                         HorizontalAlignment="Center"
+                                         Content="{TemplateBinding Content}"
+                                          />    
+
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button >
+
+
+                        </StackPanel>
+
+
+
+                    </Grid>
+                    <!--END: Search Recipe-->
+
+
+                    <!--Found Search Section-->
                     <Grid
-                         x:Name="searchRecipePage"
+                         x:Name="searchedRecipePage"
                           Grid.Column="1"
                           Background="Transparent"
                           Visibility="Hidden"
@@ -586,7 +660,7 @@
                         </StackPanel>
                         
                     </Grid>
-                    <!--END:Search Section CODE-->
+                    <!--END:Found Search Section-->
 
                 </Grid>
                 <!--END: Menu CODE-->

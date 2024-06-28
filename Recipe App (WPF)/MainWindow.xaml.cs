@@ -1,6 +1,7 @@
 ﻿using System.Text;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 namespace Recipe_App__WPF_
 {
@@ -17,6 +18,7 @@ namespace Recipe_App__WPF_
             InitializeComponent();
 
             DictionaryforRecipe = new Dictionary<string, Recipe>();
+
         }
 
 
@@ -42,23 +44,22 @@ namespace Recipe_App__WPF_
         private void btnLaunch_Click(object sender, RoutedEventArgs e)
         {
             landing_page.Visibility = Visibility.Hidden;
-            menu.Visibility = Visibility.Visible; 
-
+            menu.Visibility = Visibility.Visible;
+            searchRecipeNamePage.Visibility = Visibility.Hidden;
 
         }
 
+
+        //Add Recipe Button
         private void btnAddRecipe_Click(object sender, RoutedEventArgs e)
         {
             landing_page.Visibility = Visibility.Hidden;
             addRecipePage.Visibility = Visibility.Visible;
             menu.Visibility = Visibility.Visible;
-
+            searchRecipeNamePage.Visibility = Visibility.Hidden;
         }
 
-        private void btnSearchRecipe_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+       
 
         private void btnAddIngredient_Click(object sender, RoutedEventArgs e)
         {
@@ -166,6 +167,48 @@ namespace Recipe_App__WPF_
 
         }
 
+        //Search
+        private void btnSearchRecipe_Click(object sender, RoutedEventArgs e)
+        {
+            landing_page.Visibility = Visibility.Hidden;
+            addRecipePage.Visibility = Visibility.Hidden;
+            menu.Visibility = Visibility.Visible;
+            searchedRecipePage.Visibility = Visibility.Hidden;
+            searchRecipeNamePage.Visibility = Visibility.Visible;
+
+        }
+
+        //Search for Recipe 
+        private void btnSearchRecipeDatabase_Click(object sender, RoutedEventArgs e)
+        {
+            string findRecipeName = searchRecipeName.Text;
+
+            // Flag to check if recipe is found
+            bool recipeFound = false;
+
+            // Search through the dictionary 
+            foreach (string recipeName in DictionaryforRecipe.Keys)
+            {
+                if (string.Equals(findRecipeName, recipeName, StringComparison.CurrentCultureIgnoreCase))
+                {
+                    searchedRecipePage.Visibility = Visibility.Visible;
+                    searchRecipeNamePage.Visibility = Visibility.Hidden;
+
+                    recipeFound = true;
+                    break;
+                }
+            }
+
+            if (!recipeFound)
+            {
+                // Display a message if recipe is not found
+                MessageBox.Show($"{findRecipeName.Substring(0, 1).ToUpper()}{findRecipeName.Substring(1).ToLower()} is not found");
+            }
+
+
+
+        }
+
         private void btnApplyScale_Click(object sender, RoutedEventArgs e)
         {
 
@@ -190,5 +233,7 @@ namespace Recipe_App__WPF_
         {
 
         }
+
+        
     }
 }
