@@ -338,7 +338,7 @@
                             </Button>
 
                             <Button
-                                x:Name="btnDisplayRecipe"
+                                x:Name="btnDisplayPieChart"
                                 Content="Display Recipe"
                                 BorderThickness="0"
                                 Foreground="White"
@@ -346,7 +346,7 @@
                                 FontWeight="Bold"
                                 FontFamily="Montserrat"
                                 Cursor="Hand"
-                                Click="btnSearchRecipe_Click"
+                                Click="btnDisplayPieChart_Click"
                                 Margin="0,0,0,30"
                                 >
 
@@ -446,7 +446,7 @@
                                     <Button x:Name="btnAddStep" Content="Add" Click="btnAddStep_Click"/>
                                 </StackPanel>
 
-                                <ListBox Name="stepsListBox" Height="70"/>
+                                <ListBox x:Name="stepsListBox" Height="70"/>
                             </StackPanel>
 
                             <Button x:Name="btnSaveRecipe"
@@ -501,7 +501,7 @@
                     <Grid x:Name="searchRecipeNamePage"
                            Grid.Column="1"
                            Background="Transparent"
-                           Visibility="Visible"
+                           Visibility="Hidden"
                            >            
 
                         <!--The content-->
@@ -576,7 +576,7 @@
                          x:Name="searchedRecipePage"
                           Grid.Column="1"
                           Background="Transparent"
-                          Visibility="Hidden"
+                          Visibility="Visible"
                         >
                         <StackPanel Orientation="Vertical" Margin="19,10,30,0">
                             <TextBlock 
@@ -589,7 +589,7 @@
                                Text="Recipe detail"
                                HorizontalAlignment="Center"
                               />
-                            <TextBox x:Name="recipeDetailsTextBox" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" IsReadOnly="True" Height="100"/>
+                            <ListBox x:Name="recipeDetailsListBox"  Height="100"/>
 
                             <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
                                 <TextBlock 

@@ -46,6 +46,7 @@ namespace Recipe_App__WPF_
             landing_page.Visibility = Visibility.Hidden;
             menu.Visibility = Visibility.Visible;
             searchRecipeNamePage.Visibility = Visibility.Hidden;
+            searchedRecipePage.Visibility = Visibility.Hidden;
 
         }
 
@@ -57,9 +58,10 @@ namespace Recipe_App__WPF_
             addRecipePage.Visibility = Visibility.Visible;
             menu.Visibility = Visibility.Visible;
             searchRecipeNamePage.Visibility = Visibility.Hidden;
+            searchedRecipePage.Visibility = Visibility.Hidden;
         }
 
-       
+
 
         private void btnAddIngredient_Click(object sender, RoutedEventArgs e)
         {
@@ -186,24 +188,67 @@ namespace Recipe_App__WPF_
             // Flag to check if recipe is found
             bool recipeFound = false;
 
-            // Search through the dictionary 
-            foreach (string recipeName in DictionaryforRecipe.Keys)
-            {
-                if (string.Equals(findRecipeName, recipeName, StringComparison.CurrentCultureIgnoreCase))
-                {
-                    searchedRecipePage.Visibility = Visibility.Visible;
-                    searchRecipeNamePage.Visibility = Visibility.Hidden;
 
-                    recipeFound = true;
-                    break;
+            if (string.IsNullOrWhiteSpace(findRecipeName))//Checks if recipeName is no
+            {
+                //display a message
+                MessageBox.Show(" ERROR: Recipe name cannot be empty.");
+            }
+            else
+            {
+                // Search through the dictionary 
+                foreach (string recipeName in DictionaryforRecipe.Keys)
+                {
+
+                    if (string.Equals(findRecipeName, recipeName, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        searchedRecipePage.Visibility = Visibility.Visible;
+                        searchRecipeNamePage.Visibility = Visibility.Hidden;
+                        searchRecipeName.Clear();
+
+                        //Displaying for the user
+                        recipeDetailsListBox.Items.Clear();
+
+                        foreach (Recipe recipe in DictionaryforRecipe.Values)
+                        {
+                            recipeDetailsListBox.Items.Add($"Recipe: {recipeName}");
+                            recipeDetailsListBox.Items.Add("Ingredients:");
+
+                            foreach (Ingredient ingredient in recipe.Ingredients)
+                            {
+                                recipeDetailsListBox.Items.Add(
+                                    $"Ingredient: {ingredient.NameOfIngredient}, Quantity: {ingredient.QuantityOfIngredient}, Unit: {ingredient.UnitOfIngredient}, Calories: {ingredient.CaloriesOfIngredient}, Food Group: {ingredient.FoodGroupOfIngredient}" +
+                                    $"\n --------------------------------------"
+                                );
+                            }
+
+
+                            //Display steps
+                            
+                            recipeDetailsListBox.Items.Add("Steps:");
+                            for (int i = 0; i < recipe.Steps.Length; i++)
+                            {
+                                recipeDetailsListBox.Items.Add($"Step {i + 1}: {recipe.Steps[i]}" +
+                                    $"\n --------------------------------------");
+                            }
+                            
+                            // Add an empty line for separation between recipes
+                            recipeDetailsListBox.Items.Add(string.Empty);
+                        }
+
+                        recipeFound = true;
+                        break;
+                    }
+                }
+
+                if (!recipeFound)
+                {
+                    // Display a message if recipe is not found
+                    MessageBox.Show($"{findRecipeName.Substring(0, 1).ToUpper()}{findRecipeName.Substring(1).ToLower()} is not found");
+
                 }
             }
 
-            if (!recipeFound)
-            {
-                // Display a message if recipe is not found
-                MessageBox.Show($"{findRecipeName.Substring(0, 1).ToUpper()}{findRecipeName.Substring(1).ToLower()} is not found");
-            }
 
 
 
@@ -234,6 +279,15 @@ namespace Recipe_App__WPF_
 
         }
 
-        
+        private void btnDisplayPieChart_Click(object sender, RoutedEventArgs e)
+        {
+            landing_page.Visibility = Visibility.Hidden;
+            addRecipePage.Visibility = Visibility.Hidden;
+            menu.Visibility = Visibility.Visible;
+            searchedRecipePage.Visibility = Visibility.Hidden;
+            searchRecipeNamePage.Visibility = Visibility.Hidden;
+        }
+
+
     }
 }
