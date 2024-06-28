@@ -272,7 +272,29 @@ namespace Recipe_App__WPF_
 
         private void btnIngredientFilter_Click(object sender, RoutedEventArgs e)
         {
+            string ingredientName = filterIngredientTextBox.Text.Trim();
 
+            if (string.IsNullOrWhiteSpace(ingredientName))
+            {
+                MessageBox.Show("ERROR: Ingredient name cannot be empty.");
+                return;
+            }
+
+            recipeDetailsListBox.Items.Clear();
+
+            foreach (var entry in DictionaryforRecipe)
+            {
+                Recipe recipe = entry.Value;
+
+                foreach (Ingredient ingredient in recipe.Ingredients)
+                {
+                    if (string.Equals(ingredient.NameOfIngredient, ingredientName, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        DisplayAllRecipe();
+                        break;
+                    }
+                }
+            }
         }
 
         private void btnCaloriesFilter_Click(object sender, RoutedEventArgs e)
@@ -287,6 +309,8 @@ namespace Recipe_App__WPF_
             menu.Visibility = Visibility.Visible;
             searchedRecipePage.Visibility = Visibility.Hidden;
             searchRecipeNamePage.Visibility = Visibility.Hidden;
+
+            MessageBox.Show("Comming Soon!");
         }
 
         public void DisplayAllRecipe()
