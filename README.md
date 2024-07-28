@@ -67,6 +67,3 @@ Pull requests are welcome. No major changes, please open an issue first to discu
 11. A delegate is implemented to notify the user when a recipe exceeds 300 calories.
 12. A unit test is created to verify the accuracy of the total calorie calculation.
 
-### Implementation Details:
-- Implemented feedback provided by the lecturer on Part I before proceeding with Part 2.
-- Marks awarded for implementing feedback (109).
