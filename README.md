@@ -23,10 +23,7 @@ The application now is a WPF application. Changes involve it allowing new data a
 2. The click on Start Debugging or Start Without Debug
 
 ## Screenshot
-![Screenshot 2024-07-28 121624](https://github.com/user-attachments/assets/c132199a-b284-4d04-b4fc-af469521e741)
-
-## How To USE it Tutorial Video
-https://github.com/user-attachments/assets/895e8e47-44fc-4e73-ab18-1be3d3997e36
+![Screenshot 2024-06-28 210312](https://github.com/LouisAmphibian/Recipe-App-POE/assets/106699001/c257c829-d7fb-42fb-a94e-7afd56abaeef)
 
 ## Contributing
 Pull requests are welcome. No major changes, please open an issue first to discuss what you would like to change.
