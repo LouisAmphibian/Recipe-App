@@ -37,27 +37,38 @@ Pull requests are welcome. No major changes, please open an issue first to discu
 ### [12-May-2023]
 
 ### Features Added:
-1. The user can now roll a dice every time the page is refreshedThe user can now roll a dice every time the page is refreshed.
-2. The dice roll result is displayed prominently on the screen.
-3. The dice roll is simulated using a random number generator.
-4. The interface is styled using CSS to provide a visually appealing experience.
-5. The application uses the DOM to dynamically update the displayed dice result.
-6. Users can see an animation effect when the dice roll result is updated.
-
+1. The user can now enter an unlimited number of recipes.
+2. Each recipe can be given a name by the user.
+3. All recipes are displayed to the user in alphabetical order by name.
+4. Users can select a recipe from the displayed list.
+5. For each ingredient, users can now enter:
+    - The number of calories.
+    - The food group to which the ingredient belongs.
+6. The application now calculates and displays the total calories of all ingredients in a recipe.
+7. If the total calories of a recipe exceed 300, the user is notified.
 
 #### Non-functional requirements:
-7. Internationally acceptable coding standards are adhered to.
-8. Classes and modular JavaScript are used throughout the application.
-9. Best practices for HTML and CSS are followed to ensure a clean and maintainable codebase.
-10. The application is lightweight and loads quickly in the browser.
-11. The design is responsive, ensuring the game works well on both desktop and mobile devices.
-12. Basic unit tests are implemented to verify the randomness of the dice roll.
+8. Internationally acceptable coding standards are adhered to.
+9. Classes are used throughout the application.
+10. Generic collections are utilized instead of arrays for storing recipes, ingredients, and steps.
+11. A delegate is implemented to notify the user when a recipe exceeds 300 calories.
+12. A unit test is created to verify the accuracy of the total calorie calculation.### Features Added:
+1. The user can now enter an unlimited number of recipes.
+2. Each recipe can be given a name by the user.
+3. All recipes are displayed to the user in alphabetical order by name.
+4. Users can select a recipe from the displayed list.
+5. For each ingredient, users can now enter:
+    - The number of calories.
+    - The food group to which the ingredient belongs.
+6. The application now calculates and displays the total calories of all ingredients in a recipe.
+7. If the total calories of a recipe exceed 300, the user is notified.
 
-
-
-
-
-
+#### Non-functional requirements:
+8. Internationally acceptable coding standards are adhered to.
+9. Classes are used throughout the application.
+10. Generic collections are utilized instead of arrays for storing recipes, ingredients, and steps.
+11. A delegate is implemented to notify the user when a recipe exceeds 300 calories.
+12. A unit test is created to verify the accuracy of the total calorie calculation.
 
 ### Implementation Details:
 - Implemented feedback provided by the lecturer on Part I before proceeding with Part 2.
