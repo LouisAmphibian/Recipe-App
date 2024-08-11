@@ -1,4 +1,4 @@
-# Recipe-App-POE-ST10161370
+# Recipe-App
 
 # Description
 Recipe app is a application that allows the user to enter and store the ingredients and steps for one recipe.
